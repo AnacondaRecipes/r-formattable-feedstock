@@ -8,7 +8,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: formattable_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/formattable_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/formattable/formattable_{{ version }}.tar.gz
@@ -27,6 +26,7 @@ build:
 # Suggests: testthat, DT, shiny, covr
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
